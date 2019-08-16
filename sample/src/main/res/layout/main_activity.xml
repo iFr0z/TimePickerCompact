@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <ru.ifr0z.timepickercompact.TimePickerCompact
+        android:id="@+id/time_p"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_time_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_time" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/output_time_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp" />
+
+</LinearLayout>
