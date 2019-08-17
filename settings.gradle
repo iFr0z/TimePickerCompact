@@ -1,1 +1,1 @@
-include ':sample', ':timepickercompact'
+include ':timepickercompact'

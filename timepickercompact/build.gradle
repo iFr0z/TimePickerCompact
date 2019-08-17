@@ -1,6 +1,32 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+ext {
+    bintrayRepo = 'TimePickerCompact'
+    bintrayName = 'ru.ifr0z.timepickercompact'
+
+    publishedGroupId = 'com.github.ifr0z'
+    libraryName = 'timepickercompact'
+    artifact = 'timepickercompact'
+
+    libraryDescription = 'Library for easy to use TimePicker on Android API 21+'
+
+    siteUrl = 'https://github.com/iFr0z/TimePickerCompact'
+    gitUrl = 'https://github.com/iFr0z/TimePickerCompact.git'
+
+    libraryVersion = '1.0'
+
+    developerId = 'ifr0z'
+    developerName = 'Alexey Korshikov'
+    developerEmail = 'ifr0z.dev@outlook.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
 
 android {
     compileSdkVersion 29
@@ -9,8 +35,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionName '1.0'
     }
 
     buildTypes {
@@ -24,9 +49,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
+}
+
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+    apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 }
